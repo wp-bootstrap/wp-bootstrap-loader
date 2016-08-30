@@ -29,6 +29,10 @@ function bootstrap_scripts() {
 		// Twitter Bootstrap Javascript.
 		wp_register_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 'jquery', null, true );
 		wp_enqueue_script( 'bootstrap' );
+		
+		// Google Webfont.
+		wp_register_script( 'webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', null, null, true );
+		wp_enqueue_script( 'webfont' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_scripts' );
