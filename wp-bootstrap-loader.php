@@ -13,7 +13,7 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 	/**
 	 * WP_Bootstrap_Loader class.
 	 */
-	class WP_Bootstrap_Loader() {
+	class WP_Bootstrap_Loader {
 
 		/**
 		 * Construct
@@ -24,11 +24,12 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 		function __construct() {
 
 			// Load Bootstrap Scripts.
-			add_action( 'wp_enqueue_scripts', 'bootstrap_scripts' );
+			add_action( 'wp_enqueue_scripts', array( $this, 'bootstrap_scripts' ) );
 
 			// Load Bootstrap for WordPress Editor.
-			add_action( 'admin_init', 'bootstrap_editor_css' );
+			add_action( 'admin_init', array( $this, 'bootstrap_editor_css' ) );
 		}
+
 
 		/**
 		 * Loads Bootstrap & Font Awesome Stylesheet & Scripts.
@@ -46,6 +47,9 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 				// Jquery.
 				wp_enqueue_script( 'jquery' );
 
+				// Load jQuery.
+				wp_enqueue_script( 'jquery' );
+
 				// Twitter Bootstrap Javascript.
 				wp_register_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 'jquery', null, true );
 				wp_enqueue_script( 'bootstrap' );
@@ -55,7 +59,8 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 				wp_enqueue_script( 'webfont' );
 
 				// Load Font Awesome via Google Webfont.
-				wp_add_inline_script( 'webfont', 'WebFont.load({custom:{families:["font-awesome"],urls:["https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"]});' );
+				wp_add_inline_script( 'webfont', 'WebFont.load({custom:{families:["font-awesome"],urls:["https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"]}});' );
+
 			}
 		}
 
@@ -76,3 +81,6 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 	}
 
 }
+
+
+	new WP_Bootstrap_Loader;
