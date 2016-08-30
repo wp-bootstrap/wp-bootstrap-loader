@@ -10,7 +10,25 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 
+	/**
+	 * WP_Bootstrap_Loader class.
+	 */
 	class WP_Bootstrap_Loader() {
+
+		/**
+		 * Construct
+		 *
+		 * @access public
+		 * @return void
+		 */
+		function __construct() {
+
+			// Load Bootstrap Scripts.
+			add_action( 'wp_enqueue_scripts', 'bootstrap_scripts' );
+
+			// Load Bootstrap for WordPress Editor.
+			add_action( 'admin_init', 'bootstrap_editor_css' );
+		}
 
 		/**
 		 * Loads Bootstrap & Font Awesome Stylesheet & Scripts.
