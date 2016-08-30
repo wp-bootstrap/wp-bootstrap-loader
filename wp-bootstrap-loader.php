@@ -42,6 +42,9 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 				// Twitter Bootstrap CSS.
 				wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', '', null, 'all' );
 				wp_enqueue_style( 'bootstrap' );
+				
+				// Jquery.
+				wp_enqueue_script( 'jquery' );
 
 				// Twitter Bootstrap Javascript.
 				wp_register_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 'jquery', null, true );
