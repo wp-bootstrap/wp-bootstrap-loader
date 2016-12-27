@@ -40,9 +40,10 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 		 * @param mixed $handle Handle.
 		 * @return void
 		 */
-		function bootstrap_async($tag, $handle) {
-			if ( 'bootstrap' !== $handle )
+		function bootstrap_async( $tag, $handle ) {
+			if ( 'bootstrap' !== $handle ) {
 				return $tag;
+			}
 
 			return str_replace( ' src', ' async="async" src', $tag );
 		}
@@ -61,12 +62,15 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 
 				// Load jQuery.
 				wp_enqueue_script( 'jquery' );
+				
 				// Twitter Bootstrap Javascript.
 				wp_register_script( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 'jquery', null, true );
 				wp_enqueue_script( 'bootstrap' );
+				
 				// Google Webfont.
 				wp_register_script( 'webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js', null, null, true );
 				wp_enqueue_script( 'webfont' );
+				
 				// Load Font Awesome via Google Webfont.
 				wp_add_inline_script( 'webfont', 'WebFont.load({custom:{families:["font-awesome"],urls:["https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"]}});' );
 			}
