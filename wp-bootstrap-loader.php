@@ -8,10 +8,12 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
+	
 	/**
 	 * WP_Bootstrap_Loader class.
 	 */
 	class WP_Bootstrap_Loader {
+		
 		/**
 		 * Construct
 		 *
@@ -39,10 +41,10 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 		 * @return void
 		 */
 		function bootstrap_async($tag, $handle) {
-			if ( 'bootstrap' !== $handle )
+			if ( 'bootstrap' !== $handle || 'webfont' !== $handle )
 				return $tag;
 
-			return str_replace( ' src', ' async="async" defer="defer" src', $tag );
+			return str_replace( ' src', ' async="async" src', $tag );
 		}
 
 		/**
