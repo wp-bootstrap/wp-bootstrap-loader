@@ -6,14 +6,13 @@
  */
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-
 if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
-	
+
 	/**
 	 * WP_Bootstrap_Loader class.
 	 */
 	class WP_Bootstrap_Loader {
-		
+
 		/**
 		 * Construct
 		 *
@@ -27,11 +26,11 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 
 			// Async & Defer.
 			add_filter('script_loader_tag', array( $this, 'bootstrap_async' ), 10, 2);
+			add_filter('script_loader_tag', array( $this, 'jquery_migrate_async' ), 10, 3);
 
 			// Load Bootstrap for WordPress Editor.
 			add_action( 'admin_init', array( $this, 'bootstrap_editor_css' ) );
 		}
-
 		/**
 		 * Bootstrap Async and Defer.
 		 *
@@ -40,12 +39,26 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 		 * @param mixed $handle Handle.
 		 * @return void
 		 */
-		function bootstrap_async( $tag, $handle ) {
+		function bootstrap_async($tag, $handle) {
 			if ( 'bootstrap' !== $handle ) {
 				return $tag;
 			}
-
 			return str_replace( ' src', ' async="async" src', $tag );
+		}
+
+		/**
+		 * jquery_migrate_async function.
+		 *
+		 * @access public
+		 * @param mixed $tag Tag.
+		 * @param mixed $handle Handle.
+		 * @return void
+		 */
+		function jquery_migrate_async( $tag, $handle ) {
+			if ( 'jquery-migrate' !== $handle ) {
+				return $tag;
+			}
+			return str_replace( ' src', ' defer="defer" src', $tag );
 		}
 
 		/**
@@ -56,10 +69,11 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 		 */
 		function bootstrap_scripts() {
 			if ( ! is_admin() ) {
+				
 				// Twitter Bootstrap CSS.
 				wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', '', null, 'all' );
 				wp_enqueue_style( 'bootstrap' );
-
+				
 				// Load jQuery.
 				wp_enqueue_script( 'jquery' );
 				
