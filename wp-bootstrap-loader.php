@@ -41,7 +41,7 @@ if ( ! class_exists( 'WP_Bootstrap_Loader' ) ) {
 		 * @return void
 		 */
 		function bootstrap_async($tag, $handle) {
-			if ( 'bootstrap' !== $handle || 'webfont' !== $handle )
+			if ( 'bootstrap' !== $handle )
 				return $tag;
 
 			return str_replace( ' src', ' async="async" src', $tag );
