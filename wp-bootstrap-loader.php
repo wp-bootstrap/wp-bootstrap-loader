@@ -4,6 +4,20 @@
  *
  * @package wp-bootstrap-loader
  */
+
+ /*
+ * Plugin Name: WP Bootstrap Loader
+ * Plugin URI:  https://github.com/wp-bootstrap/wp-bootstrap-loader
+ * Version: 2.0.5
+ * Description: A WordPress class to load Bootstrap and FontAwesome stylesheets and scripts.
+ * Author: WP-Bootstrap
+ * Author URI: https://github.com/wp-bootstrap
+ * GitHub Plugin URI: https://github.com/wp-bootstrap/wp-bootstrap-loader
+ * GitHub Branch: master
+ * License: GPL-3.0+
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
+*/
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
