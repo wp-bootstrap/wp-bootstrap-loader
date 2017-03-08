@@ -5,7 +5,6 @@
  * @package Wp_Bootstrap_Loader
  */
 
-<?php
 
 class WP_Test_BootstrapLoader extends WP_UnitTestCase {
 
