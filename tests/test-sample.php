@@ -19,7 +19,7 @@ class WP_Test_BootstrapLoader extends WP_UnitTestCase {
  	} 
 	
 	// Test Bootstrap is Loaded.
-	function testjQueryIsLoaded() {
+	function testBootstrapIsLoaded() {
  
     		$this->assertFalse( wp_script_is( 'bootstrap' ) );
  
@@ -29,7 +29,7 @@ class WP_Test_BootstrapLoader extends WP_UnitTestCase {
  	} 
 	
 	// Test WebFont is Loaded.
-	function testjQueryIsLoaded() {
+	function testWebfontIsLoaded() {
  
     		$this->assertFalse( wp_script_is( 'webfont' ) );
  
