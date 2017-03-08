@@ -3,3 +3,4 @@
 [![Code Climate](https://codeclimate.com/github/wp-bootstrap/wp-bootstrap-loader/badges/gpa.svg)](https://codeclimate.com/github/wp-bootstrap/wp-bootstrap-loader)
 [![Test Coverage](https://codeclimate.com/github/wp-bootstrap/wp-bootstrap-loader/badges/coverage.svg)](https://codeclimate.com/github/wp-bootstrap/wp-bootstrap-loader/coverage)
 [![Issue Count](https://codeclimate.com/github/wp-bootstrap/wp-bootstrap-loader/badges/issue_count.svg)](https://codeclimate.com/github/wp-bootstrap/wp-bootstrap-loader)
+[![Build Status](https://travis-ci.org/wp-bootstrap/wp-bootstrap-loader.svg?branch=master)](https://travis-ci.org/wp-bootstrap/wp-bootstrap-loader)
